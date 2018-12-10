@@ -47,45 +47,63 @@
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="4rs-W8-hau">
                                 <rect key="frame" x="0.0" y="120" width="375" height="547"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="5z7-A9-8oG">
-                                    <size key="itemSize" width="350" height="60"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="5z7-A9-8oG">
+                                    <size key="itemSize" width="374" height="60"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="TodoListCell" id="sa9-bS-FbF" customClass="TodoListCell" customModule="TodoListApp" customModuleProvider="target">
-                                        <rect key="frame" x="12.5" y="0.0" width="350" height="60"/>
+                                        <rect key="frame" x="0.5" y="0.0" width="374" height="60"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
-                                            <rect key="frame" x="0.0" y="0.0" width="350" height="60"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="374" height="60"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tu9-P8-HbH" userLabel="ContentMain">
-                                                    <rect key="frame" x="0.0" y="0.0" width="350" height="60"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="374" height="60"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZIf-8K-RaN">
-                                                            <rect key="frame" x="10" y="19.5" width="340" height="21"/>
+                                                            <rect key="frame" x="10" y="19.5" width="284" height="21"/>
                                                             <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ga3-Kk-QXH" userLabel="Divider">
-                                                            <rect key="frame" x="0.0" y="59" width="350" height="1"/>
+                                                            <rect key="frame" x="0.0" y="59" width="374" height="1"/>
                                                             <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="1" id="1K9-Jf-dPl"/>
                                                             </constraints>
                                                         </view>
+                                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_check" translatesAutoresizingMaskIntoConstraints="NO" id="gec-OP-dTV">
+                                                            <rect key="frame" x="339" y="17.5" width="25" height="25"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="height" constant="25" id="9e3-eN-agS"/>
+                                                                <constraint firstAttribute="width" constant="25" id="WlJ-36-voD"/>
+                                                            </constraints>
+                                                        </imageView>
+                                                        <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_edit" translatesAutoresizingMaskIntoConstraints="NO" id="Aa9-GY-mQP">
+                                                            <rect key="frame" x="304" y="17.5" width="25" height="25"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="height" constant="25" id="3ts-ox-GgA"/>
+                                                                <constraint firstAttribute="width" constant="25" id="qfe-l5-pcR"/>
+                                                            </constraints>
+                                                        </imageView>
                                                     </subviews>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <constraints>
-                                                        <constraint firstItem="ZIf-8K-RaN" firstAttribute="centerY" secondItem="tu9-P8-HbH" secondAttribute="centerY" id="2qU-Of-59T"/>
-                                                        <constraint firstAttribute="trailing" secondItem="ZIf-8K-RaN" secondAttribute="trailing" id="CZT-VQ-h2T"/>
                                                         <constraint firstAttribute="bottom" secondItem="Ga3-Kk-QXH" secondAttribute="bottom" id="HrS-Mb-CHP"/>
                                                         <constraint firstAttribute="trailing" secondItem="Ga3-Kk-QXH" secondAttribute="trailing" id="Q3e-lE-zNh"/>
-                                                        <constraint firstItem="ZIf-8K-RaN" firstAttribute="leading" secondItem="tu9-P8-HbH" secondAttribute="leading" constant="10" id="WBR-JY-oYS"/>
+                                                        <constraint firstItem="Aa9-GY-mQP" firstAttribute="leading" secondItem="ZIf-8K-RaN" secondAttribute="trailing" constant="10" id="b1B-YT-con"/>
+                                                        <constraint firstItem="gec-OP-dTV" firstAttribute="leading" secondItem="Aa9-GY-mQP" secondAttribute="trailing" constant="10" id="fhQ-uD-wkG"/>
                                                         <constraint firstItem="Ga3-Kk-QXH" firstAttribute="leading" secondItem="tu9-P8-HbH" secondAttribute="leading" id="hV5-ah-fWj"/>
+                                                        <constraint firstAttribute="trailing" secondItem="gec-OP-dTV" secondAttribute="trailing" constant="10" id="hne-SQ-3xf"/>
+                                                        <constraint firstItem="Aa9-GY-mQP" firstAttribute="centerY" secondItem="tu9-P8-HbH" secondAttribute="centerY" id="qBE-dJ-Fis"/>
+                                                        <constraint firstItem="ZIf-8K-RaN" firstAttribute="centerY" secondItem="tu9-P8-HbH" secondAttribute="centerY" id="r0k-7W-Erc"/>
+                                                        <constraint firstItem="ZIf-8K-RaN" firstAttribute="leading" secondItem="tu9-P8-HbH" secondAttribute="leading" constant="10" id="w9L-zJ-vtX"/>
+                                                        <constraint firstItem="gec-OP-dTV" firstAttribute="centerY" secondItem="tu9-P8-HbH" secondAttribute="centerY" id="y4m-7l-Mup"/>
                                                     </constraints>
                                                 </view>
                                             </subviews>
@@ -97,6 +115,9 @@
                                             <constraint firstAttribute="trailing" secondItem="tu9-P8-HbH" secondAttribute="trailing" id="nyM-IV-S5h"/>
                                         </constraints>
                                         <connections>
+                                            <outlet property="iconCheck" destination="gec-OP-dTV" id="jXj-9a-zgn"/>
+                                            <outlet property="iconEdit" destination="Aa9-GY-mQP" id="mhK-Q6-efd"/>
+                                            <outlet property="rootView" destination="tu9-P8-HbH" id="ggV-ZP-Nh8"/>
                                             <outlet property="todoName" destination="ZIf-8K-RaN" id="RN7-HS-0uc"/>
                                         </connections>
                                     </collectionViewCell>
@@ -146,5 +167,7 @@
     </scenes>
     <resources>
         <image name="icon_add" width="30" height="30"/>
+        <image name="icon_check" width="33" height="33"/>
+        <image name="icon_edit" width="17" height="17"/>
     </resources>
 </document>

@@ -16,10 +16,28 @@ class ViewController: UIViewController, UICollectionViewDelegate {
     @IBOutlet weak var todoListCollectionView: UICollectionView!
     
     //MARK: Props
-    var todoList = [String]()
+    var todoList = [ModelTodo]()
+    var listPicked = [String]()
+    let userDefaults = UserDefaults.standard
+    let publicFunctions = PublicFunction()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        //user already set the userdefault list picked
+        if let itemsListPicked = userDefaults.array(forKey: "ListPicked") {
+            listPicked = itemsListPicked as! [String]
+        } /* user first time open the apps */
+        else{
+            userDefaults.set(listPicked, forKey: "ListPicked")
+        }
+        
+        //check if userdefault is nil or no, if its not then clone the userdefault array to todoList array
+        if let itemsTodoList = userDefaults.data(forKey: "TodoListArray") {
+            let todoData = itemsTodoList
+            let todoArray = try! JSONDecoder().decode([ModelTodo].self, from: todoData)
+            todoList = todoArray
+        }
         
         //init collection view
         initTodoListCollectionView()
@@ -61,8 +79,15 @@ class ViewController: UIViewController, UICollectionViewDelegate {
                 return
             }
             
-            self.todoList.append((alertInputTodo.text?.trim())!)
+            let currentDate = self.publicFunctions.dateLongToString(dateInMillis: self.publicFunctions.currentTimeInMilliSeconds(), pattern: "yyyy-MM-dd")
+            
+            self.todoList.append(ModelTodo(todoName: alertInputTodo.text?.trim(), createdTime: currentDate))
+            let todoListUserDefault = try! JSONEncoder().encode(self.todoList)
+            self.userDefaults.set(todoListUserDefault, forKey: "TodoListArray")
+            
             self.todoListCollectionView.reloadData()
+            //print(self.userDefaults.array(forKey: "TodoListArray")!)
+            
             alert.dismiss(animated: true, completion: nil)
             //self.todoListCollectionView.insertItems(at: <#T##[IndexPath]#>)
         }))
@@ -76,7 +101,7 @@ class ViewController: UIViewController, UICollectionViewDelegate {
     }
     
     func changeUIColor() {
-        changeTintColor(imageView: iconAdd, hexCode: 0xFFFFFF, alpha: 1.0)
+        publicFunctions.changeTintColor(imageView: iconAdd, hexCode: 0xFFFFFF, alpha: 1.0)
     }
     
     //MARK: Function to change status and text bar color
@@ -90,47 +115,112 @@ class ViewController: UIViewController, UICollectionViewDelegate {
     override var preferredStatusBarStyle: UIStatusBarStyle{
         return .lightContent
     }
-
-    func changeTintColor(imageView: UIImageView, hexCode: Int, alpha: CGFloat) {
-        imageView.image = imageView.image!.withRenderingMode(.alwaysTemplate)
-        imageView.tintColor = UIColor(rgb: 0xFFFFFF).withAlphaComponent(alpha)
+    
+    @objc func rootViewClick(sender: UITapGestureRecognizer){
+        if let indexPath = self.todoListCollectionView.indexPathForItem(at: sender.location(in: self.todoListCollectionView)){
+            
+            //init the cell of row if you need it
+            let cell = self.todoListCollectionView.cellForItem(at: indexPath) as! TodoListCell
+            
+            let todoData = userDefaults.data(forKey: "TodoListArray")
+            let todoArray = try! JSONDecoder().decode([ModelTodo].self, from: todoData!)
+            
+            if listPicked.contains(todoArray[indexPath.row].todoName!) {
+                listPicked = listPicked.filter{ $0 != todoArray[indexPath.row].todoName }
+                userDefaults.set(listPicked, forKey: "ListPicked")
+                publicFunctions.changeTintColor(imageView: cell.iconCheck, hexCode: 0x000000, alpha: 1.0)
+            } else{
+                listPicked.append(todoArray[indexPath.row].todoName!)
+                userDefaults.set(listPicked, forKey: "ListPicked")
+                publicFunctions.changeTintColor(imageView: cell.iconCheck, hexCode: 0x73AAFF, alpha: 1.0)
+            }
+        }
     }
     
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        var alertTextField = UITextField()
-        
-        let alert = UIAlertController(title: "Change Todo List", message: nil, preferredStyle: .alert)
-        
-        alert.addTextField { (inputTextField) in
-            alertTextField = inputTextField
-            inputTextField.text = self.todoList[indexPath.row]
-        }
-        
-        alert.addAction(UIAlertAction(title: "Change Todo", style: .default, handler: {
-            (uiAlertAction) in
-            if alertTextField.text?.trim() == ""{
-                self.view.makeToast("Anda belum memasukan Todo name yang baru")
-                return
+    @objc func editTodoName(sender: UITapGestureRecognizer){
+        if let indexPath = self.todoListCollectionView?.indexPathForItem(at: sender.location(in: self.todoListCollectionView)) {
+            
+            var alertTextField = UITextField()
+            
+            let alert = UIAlertController(title: "Change Todo List", message: nil, preferredStyle: .alert)
+            
+            alert.addTextField {
+                (inputTextField) in
+                alertTextField = inputTextField
+                
+                let todoData = self.userDefaults.data(forKey: "TodoListArray")
+                let todoArray = try! JSONDecoder().decode([ModelTodo].self, from: todoData!)
+                
+                inputTextField.text = todoArray[indexPath.row].todoName
             }
             
-            self.todoList[indexPath.row] = (alertTextField.text?.trim())!
-            self.todoListCollectionView.reloadData()
-        }))
+            alert.addAction(UIAlertAction(title: "Change Todo", style: .default, handler: {
+                (uiAlertAction) in
+                if alertTextField.text?.trim() == ""{
+                    self.view.makeToast("Anda belum memasukan Todo name yang baru")
+                    return
+                }
+                
+                let currentDate = self.publicFunctions.dateLongToString(dateInMillis: self.publicFunctions.currentTimeInMilliSeconds(), pattern: "yyyy-MM-dd")
+                
+                print(currentDate)
+                
+                self.todoList[indexPath.row] = ModelTodo(todoName: alertTextField.text?.trim(), createdTime: currentDate)
+                let todoListUserDefault = try! JSONEncoder().encode(self.todoList)
+                self.userDefaults.set(todoListUserDefault, forKey: "TodoListArray")
+
+                if self.listPicked[optional: indexPath.row] != nil {
+                    self.listPicked[indexPath.row] = (alertTextField.text?.trim())!
+                    self.userDefaults.set(self.listPicked, forKey: "ListPicked")
+                }
+    
+                self.todoListCollectionView.reloadData()
+            }))
+            
+            present(alert, animated: true)
+            
+        }
+    }
+}
+
+extension ViewController: UICollectionViewDelegateFlowLayout{
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         
-        present(alert, animated: true)
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "TodoListCell", for: indexPath) as! TodoListCell
+        
+        let iconEditHeight = cell.iconEdit.frame.height
+        let paddingTopBot = CGFloat(20)
+        return CGSize(width: UIScreen.main.bounds.width, height: iconEditHeight + paddingTopBot)
     }
 }
 
 extension ViewController: UICollectionViewDataSource{
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return todoList.count
+        return userDefaults.array(forKey: "TodoListArray") != nil ? (userDefaults.array(forKey: "TodoListArray")?.count)! : todoList.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "TodoListCell", for: indexPath) as! TodoListCell
         
+        //decode the user default custom object array
+        let todoData = userDefaults.data(forKey: "TodoListArray")
+        let todoArray = try! JSONDecoder().decode([ModelTodo].self, from: todoData!)
+        
         //set content
-        cell.todoName.text = todoList[indexPath.row]
+        cell.todoName.text = todoArray[indexPath.row].todoName
+        
+        //check if the item in this position is saved in user default or no
+        if listPicked.contains(todoArray[indexPath.row].todoName!) {
+            //change the color tint to blue
+            publicFunctions.changeTintColor(imageView: cell.iconCheck, hexCode: 0x73AAFF, alpha: 1.0)
+        } else{
+            //change the color tint to black
+            publicFunctions.changeTintColor(imageView: cell.iconCheck, hexCode: 0x000000, alpha: 1.0)
+        }
+        
+        //handle click for item
+        cell.iconEdit.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(editTodoName(sender:))))
+        cell.rootView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(rootViewClick(sender:))))
         
         return cell
     }
@@ -160,3 +250,8 @@ extension String{
     }
 }
 
+extension Collection {
+    subscript(optional i: Index) -> Iterator.Element? {
+        return self.indices.contains(i) ? self[i] : nil
+    }
+}
