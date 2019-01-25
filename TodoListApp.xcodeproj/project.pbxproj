@@ -10,12 +10,21 @@
 		CEA9090189C29BE1286BF159 /* Pods_TodoListApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9267D2032159C25BE35280A /* Pods_TodoListApp.framework */; };
 		ED14737A21BE4CAC00A98EA2 /* ModelTodo.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED14737921BE4CAC00A98EA2 /* ModelTodo.swift */; };
 		ED14737D21BE4EC400A98EA2 /* PublicFunction.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED14737C21BE4EC400A98EA2 /* PublicFunction.swift */; };
+		ED14738121BF5FB300A98EA2 /* RealmModelTodo.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED14738021BF5FB300A98EA2 /* RealmModelTodo.swift */; };
+		ED14738321BF697400A98EA2 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED14738221BF697400A98EA2 /* Category.swift */; };
+		ED14738521BF6BED00A98EA2 /* CategoryController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED14738421BF6BED00A98EA2 /* CategoryController.swift */; };
+		ED14738721BF6E0A00A98EA2 /* CategoryListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED14738621BF6E0A00A98EA2 /* CategoryListCell.swift */; };
+		ED14738921BFB54600A98EA2 /* InteractivePopRecognizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED14738821BFB54600A98EA2 /* InteractivePopRecognizer.swift */; };
 		ED43B5BE21BDFD7900A8E63C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED43B5BD21BDFD7900A8E63C /* AppDelegate.swift */; };
 		ED43B5C021BDFD7900A8E63C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED43B5BF21BDFD7900A8E63C /* ViewController.swift */; };
 		ED43B5C321BDFD7900A8E63C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ED43B5C121BDFD7900A8E63C /* Main.storyboard */; };
 		ED43B5C521BDFD7B00A8E63C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ED43B5C421BDFD7B00A8E63C /* Assets.xcassets */; };
 		ED43B5C821BDFD7B00A8E63C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ED43B5C621BDFD7B00A8E63C /* LaunchScreen.storyboard */; };
 		ED43B5D521BE0BD500A8E63C /* TodoListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED43B5D421BE0BD500A8E63C /* TodoListCell.swift */; };
+		ED9B006D21FAA566000FEC8C /* ImageMainCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED9B006C21FAA566000FEC8C /* ImageMainCell.swift */; };
+		ED9B006F21FAA5A8000FEC8C /* HealthDataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED9B006E21FAA5A8000FEC8C /* HealthDataController.swift */; };
+		ED9B007121FAA618000FEC8C /* ImageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED9B007021FAA618000FEC8C /* ImageModel.swift */; };
+		ED9B007321FABED0000FEC8C /* ActivityController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED9B007221FABED0000FEC8C /* ActivityController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +33,11 @@
 		A9267D2032159C25BE35280A /* Pods_TodoListApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TodoListApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		ED14737921BE4CAC00A98EA2 /* ModelTodo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelTodo.swift; sourceTree = "<group>"; };
 		ED14737C21BE4EC400A98EA2 /* PublicFunction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PublicFunction.swift; sourceTree = "<group>"; };
+		ED14738021BF5FB300A98EA2 /* RealmModelTodo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmModelTodo.swift; sourceTree = "<group>"; };
+		ED14738221BF697400A98EA2 /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
+		ED14738421BF6BED00A98EA2 /* CategoryController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryController.swift; sourceTree = "<group>"; };
+		ED14738621BF6E0A00A98EA2 /* CategoryListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryListCell.swift; sourceTree = "<group>"; };
+		ED14738821BFB54600A98EA2 /* InteractivePopRecognizer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InteractivePopRecognizer.swift; sourceTree = "<group>"; };
 		ED43B5BA21BDFD7900A8E63C /* TodoListApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TodoListApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ED43B5BD21BDFD7900A8E63C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		ED43B5BF21BDFD7900A8E63C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -32,6 +46,10 @@
 		ED43B5C721BDFD7B00A8E63C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		ED43B5C921BDFD7B00A8E63C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		ED43B5D421BE0BD500A8E63C /* TodoListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoListCell.swift; sourceTree = "<group>"; };
+		ED9B006C21FAA566000FEC8C /* ImageMainCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageMainCell.swift; sourceTree = "<group>"; };
+		ED9B006E21FAA5A8000FEC8C /* HealthDataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthDataController.swift; sourceTree = "<group>"; };
+		ED9B007021FAA618000FEC8C /* ImageModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageModel.swift; sourceTree = "<group>"; };
+		ED9B007221FABED0000FEC8C /* ActivityController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,6 +85,7 @@
 			isa = PBXGroup;
 			children = (
 				ED14737C21BE4EC400A98EA2 /* PublicFunction.swift */,
+				ED14738821BFB54600A98EA2 /* InteractivePopRecognizer.swift */,
 			);
 			path = "Class Helper";
 			sourceTree = "<group>";
@@ -115,6 +134,7 @@
 			isa = PBXGroup;
 			children = (
 				ED43B5D421BE0BD500A8E63C /* TodoListCell.swift */,
+				ED14738621BF6E0A00A98EA2 /* CategoryListCell.swift */,
 			);
 			path = "Collection View Cell Class";
 			sourceTree = "<group>";
@@ -122,9 +142,13 @@
 		ED43B5D221BE0B9900A8E63C /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				ED9B006B21FAA54C000FEC8C /* Cell */,
 				ED43B5BD21BDFD7900A8E63C /* AppDelegate.swift */,
 				ED43B5BF21BDFD7900A8E63C /* ViewController.swift */,
+				ED14738421BF6BED00A98EA2 /* CategoryController.swift */,
 				ED43B5D121BE0B7200A8E63C /* Collection View Cell Class */,
+				ED9B006E21FAA5A8000FEC8C /* HealthDataController.swift */,
+				ED9B007221FABED0000FEC8C /* ActivityController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -133,8 +157,19 @@
 			isa = PBXGroup;
 			children = (
 				ED14737921BE4CAC00A98EA2 /* ModelTodo.swift */,
+				ED14738021BF5FB300A98EA2 /* RealmModelTodo.swift */,
+				ED14738221BF697400A98EA2 /* Category.swift */,
+				ED9B007021FAA618000FEC8C /* ImageModel.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		ED9B006B21FAA54C000FEC8C /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				ED9B006C21FAA566000FEC8C /* ImageMainCell.swift */,
+			);
+			path = Cell;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -213,10 +248,16 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-TodoListApp/Pods-TodoListApp-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
+				"${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/SwipeCellKit/SwipeCellKit.framework",
 				"${BUILT_PRODUCTS_DIR}/Toast-Swift/Toast_Swift.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RealmSwift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwipeCellKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Toast_Swift.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -251,9 +292,18 @@
 			files = (
 				ED43B5C021BDFD7900A8E63C /* ViewController.swift in Sources */,
 				ED14737A21BE4CAC00A98EA2 /* ModelTodo.swift in Sources */,
+				ED9B007321FABED0000FEC8C /* ActivityController.swift in Sources */,
 				ED43B5D521BE0BD500A8E63C /* TodoListCell.swift in Sources */,
+				ED14738721BF6E0A00A98EA2 /* CategoryListCell.swift in Sources */,
+				ED14738121BF5FB300A98EA2 /* RealmModelTodo.swift in Sources */,
 				ED14737D21BE4EC400A98EA2 /* PublicFunction.swift in Sources */,
+				ED14738921BFB54600A98EA2 /* InteractivePopRecognizer.swift in Sources */,
+				ED9B006D21FAA566000FEC8C /* ImageMainCell.swift in Sources */,
+				ED14738521BF6BED00A98EA2 /* CategoryController.swift in Sources */,
+				ED9B006F21FAA5A8000FEC8C /* HealthDataController.swift in Sources */,
 				ED43B5BE21BDFD7900A8E63C /* AppDelegate.swift in Sources */,
+				ED9B007121FAA618000FEC8C /* ImageModel.swift in Sources */,
+				ED14738321BF697400A98EA2 /* Category.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

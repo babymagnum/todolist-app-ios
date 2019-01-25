@@ -7,16 +7,49 @@
 //
 
 import UIKit
+import RealmSwift
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
-
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+        
+        print(Realm.Configuration.defaultConfiguration.fileURL as Any)
+        
+        Realm.Configuration.defaultConfiguration = Realm.Configuration(
+            schemaVersion: 6, /* schemaVersion and conditional should same */
+            migrationBlock: { migration, oldSchemaVersion in
+                if (oldSchemaVersion < 6) {
+                    migration.enumerateObjects(ofType: RealmModelTodo.className()) { oldObject, newObject in
+                        // combine name fields into a single field
+                        let createdTime = oldObject!["createdTime"] as! String
+                        newObject!["doneTime"] = "\(createdTime)"
+                    }
+                }
+        })
+        
+        _ = try! Realm()
+        
         return true
+    }
+    
+    //func to add data to real aka CREATE
+    func addToRealm(todoName: String, createdTime: String) {
+        let todoItem = RealmModelTodo()
+        todoItem.todoName = todoName
+        todoItem.createdTime = createdTime
+        
+        do{
+            let realm = try Realm()
+            try realm.write {
+                realm.add(todoItem)
+            }
+            print("success import to realm")
+        } catch{
+            print("Error occure with error: \(error)")
+        }
     }
 
     func applicationWillResignActive(_ application: UIApplication) {
