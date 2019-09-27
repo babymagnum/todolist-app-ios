@@ -29,7 +29,7 @@ class CategoryController: UIViewController, UICollectionViewDelegate {
         
         setInteractiveRecognizer()
         
-        PublicFunction().changeStatusBar(hexCode: 0x73AAFF, view: view)
+        PublicFunction().changeStatusBar(hexCode: 0x73AAFF, view: view, opacity: 1.0)
         
         setupRealm()
         

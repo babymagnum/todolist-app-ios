@@ -1,0 +1,30 @@
+PODS:
+  - Realm (3.12.0):
+    - Realm/Headers (= 3.12.0)
+  - Realm/Headers (3.12.0)
+  - RealmSwift (3.12.0):
+    - Realm (= 3.12.0)
+  - SwipeCellKit (2.5.0)
+  - Toast-Swift (4.0.1)
+
+DEPENDENCIES:
+  - RealmSwift
+  - SwipeCellKit
+  - Toast-Swift (~> 4.0.0)
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - Realm
+    - RealmSwift
+    - SwipeCellKit
+    - Toast-Swift
+
+SPEC CHECKSUMS:
+  Realm: cdaef23c4ddb36ab1ddffed23f5a7f3332fc5585
+  RealmSwift: 5576324033f0aa5ef1e0a839a3da2281dff47a7f
+  SwipeCellKit: d8f2617538ce3021cb0a11d1b93856a06a2f2e20
+  Toast-Swift: e42a638589a2f95036b4bb7626cfbdde7daf0393
+
+PODFILE CHECKSUM: 0b95f86b937d2445b2c1de95ee17d576ffda897a
+
+COCOAPODS: 1.5.3

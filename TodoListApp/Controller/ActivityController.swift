@@ -9,11 +9,24 @@
 import UIKit
 
 class ActivityController: UIViewController {
+    
+    var titleTop: String? {
+        didSet {
+            if let title = title{
+                navigationItem.title = title
+            }
+        }
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        setupView()
+    }
+    
+    func setupView() {
+        navigationController?.navigationBar.tintColor = UIColor(rgb: 0xff7675)
+        navigationController?.navigationBar.barTintColor = UIColor(rgb: 0xff7675)
     }
     
 

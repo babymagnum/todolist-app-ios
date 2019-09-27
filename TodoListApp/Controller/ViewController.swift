@@ -43,7 +43,7 @@ class ViewController: UIViewController, UICollectionViewDelegate {
         initTodoListCollectionView()
         
         //change view color here
-        PublicFunction().changeStatusBar(hexCode: 0x73AAFF, view: view)
+        PublicFunction().changeStatusBar(hexCode: 0x73AAFF, view: view, opacity: 1.0)
         changeUIColor()
         
         //add gesture recognizer

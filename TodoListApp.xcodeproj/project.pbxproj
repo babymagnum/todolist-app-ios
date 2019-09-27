@@ -25,6 +25,8 @@
 		ED9B006F21FAA5A8000FEC8C /* HealthDataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED9B006E21FAA5A8000FEC8C /* HealthDataController.swift */; };
 		ED9B007121FAA618000FEC8C /* ImageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED9B007021FAA618000FEC8C /* ImageModel.swift */; };
 		ED9B007321FABED0000FEC8C /* ActivityController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED9B007221FABED0000FEC8C /* ActivityController.swift */; };
+		ED9B007521FB0EA9000FEC8C /* MenuCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED9B007421FB0EA9000FEC8C /* MenuCell.swift */; };
+		ED9B007721FB0EC5000FEC8C /* MenuModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED9B007621FB0EC5000FEC8C /* MenuModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -50,6 +52,8 @@
 		ED9B006E21FAA5A8000FEC8C /* HealthDataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthDataController.swift; sourceTree = "<group>"; };
 		ED9B007021FAA618000FEC8C /* ImageModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageModel.swift; sourceTree = "<group>"; };
 		ED9B007221FABED0000FEC8C /* ActivityController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityController.swift; sourceTree = "<group>"; };
+		ED9B007421FB0EA9000FEC8C /* MenuCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuCell.swift; sourceTree = "<group>"; };
+		ED9B007621FB0EC5000FEC8C /* MenuModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -160,6 +164,7 @@
 				ED14738021BF5FB300A98EA2 /* RealmModelTodo.swift */,
 				ED14738221BF697400A98EA2 /* Category.swift */,
 				ED9B007021FAA618000FEC8C /* ImageModel.swift */,
+				ED9B007621FB0EC5000FEC8C /* MenuModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -168,6 +173,7 @@
 			isa = PBXGroup;
 			children = (
 				ED9B006C21FAA566000FEC8C /* ImageMainCell.swift */,
+				ED9B007421FB0EA9000FEC8C /* MenuCell.swift */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -290,6 +296,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ED9B007721FB0EC5000FEC8C /* MenuModel.swift in Sources */,
 				ED43B5C021BDFD7900A8E63C /* ViewController.swift in Sources */,
 				ED14737A21BE4CAC00A98EA2 /* ModelTodo.swift in Sources */,
 				ED9B007321FABED0000FEC8C /* ActivityController.swift in Sources */,
@@ -301,6 +308,7 @@
 				ED9B006D21FAA566000FEC8C /* ImageMainCell.swift in Sources */,
 				ED14738521BF6BED00A98EA2 /* CategoryController.swift in Sources */,
 				ED9B006F21FAA5A8000FEC8C /* HealthDataController.swift in Sources */,
+				ED9B007521FB0EA9000FEC8C /* MenuCell.swift in Sources */,
 				ED43B5BE21BDFD7900A8E63C /* AppDelegate.swift in Sources */,
 				ED9B007121FAA618000FEC8C /* ImageModel.swift in Sources */,
 				ED14738321BF697400A98EA2 /* Category.swift in Sources */,
